@@ -34,32 +34,31 @@
       let input;
       let output;
 
-      // TODO: Buatlah sebuah fungsi dengan nama fnClickHandler
-      // Fungsi yang digunakan untuk menambahkan tulisan
-      // Jangan ubah cara deklarasi fungsinya, cukup isi saja
-      function fnClickHandler(toDoItem) {}
-
-      // TODO: register event onclick / addEventListener untuk button
       button = document.getElementById('todo-submit');
       input = document.getElementById('todo-input');
       output = document.getElementById('todo-output');
-      // akan menjalankan fungsi fnClickHandler
-      button.addEventListener('click', () => {
+
+      // TODO: Buatlah sebuah fungsi dengan nama fnClickHandler
+      // Fungsi yang digunakan untuk menambahkan tulisan
+      // Jangan ubah cara deklarasi fungsinya, cukup isi saja
+      function fnClickHandler(toDoItem) {
         const valueInput = input.value;
         const list = document.createElement('li');
         list.append(valueInput);
         output.appendChild(list);
         input.value = '';
+      }
+
+      // TODO: register event onclick / addEventListener untuk button
+      // akan menjalankan fungsi fnClickHandler
+      button.addEventListener('click', () => {
+        fnClickHandler();
       });
 
       // TODO: register event onkeypress / addEventListener untuk input
       input.addEventListener('keypress', (e) => {
         if (e.key.toLowerCase() === 'Enter'.toLowerCase()) {
-          const valueInput = input.value;
-          const list = document.createElement('li');
-          list.append(valueInput);
-          output.appendChild(list);
-          input.value = '';
+          fnClickHandler();
         }
       });
 
