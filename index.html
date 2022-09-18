@@ -9,14 +9,22 @@
   <body>
     <div id="app">
       <!-- TODO: Buatlah sebuah header dengan id todo-title -->
+      <h1 id="todo-title">To-Do List</h1>
       <!-- TODO: Buatlah sebuah subtitle dengan id todo-subtitle -->
-
+      <p id="todo-subtitle">~ Today I need to ~</p>
       <!-- Section: input -->
-      <!-- TODO: Buatlah sebuah input bertipe text dengan id todo-input -->
-      <!-- TODO: Buatlah sebuah button dengan id todo-submit -->
+      <section>
+        <!-- TODO: Buatlah sebuah input bertipe text dengan id todo-input -->
+        <input id="todo-input" type="text" />
+        <!-- TODO: Buatlah sebuah button dengan id todo-submit -->
+        <button id="todo-submit">Submit</button>
+      </section>
 
       <!-- Section output -->
-      <!-- TODO: Buatlah sebuah <ul> dengan id todo-output -->
+      <section>
+        <!-- TODO: Buatlah sebuah <ul> dengan id todo-output -->
+        <ul id="todo-output"></ul>
+      </section>
     </div>
 
     <!-- ! Untuk tantangan ini, script jangan diubah ke external js yah ! -->
@@ -32,9 +40,29 @@
       function fnClickHandler(toDoItem) {}
 
       // TODO: register event onclick / addEventListener untuk button
+      button = document.getElementById('todo-submit');
+      input = document.getElementById('todo-input');
+      output = document.getElementById('todo-output');
       // akan menjalankan fungsi fnClickHandler
-      
+      button.addEventListener('click', () => {
+        const valueInput = input.value;
+        const list = document.createElement('li');
+        list.append(valueInput);
+        output.appendChild(list);
+        input.value = '';
+      });
+
       // TODO: register event onkeypress / addEventListener untuk input
+      input.addEventListener('keypress', (e) => {
+        if (e.key.toLowerCase() === 'Enter'.toLowerCase()) {
+          const valueInput = input.value;
+          const list = document.createElement('li');
+          list.append(valueInput);
+          output.appendChild(list);
+          input.value = '';
+        }
+      });
+
       // sehingga saat di input ditekan enter akan menjalankan fungsi fnClickHandler juga
     </script>
   </body>
